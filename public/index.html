@@ -40,7 +40,6 @@ body{
   position:relative;
 }
 
-/* ANIMATED BACKGROUND */
 .bg-animation{
   position:fixed;
   top:0;left:0;
@@ -62,7 +61,6 @@ body{
   width:400px;height:400px;
   background:radial-gradient(circle,#c084fc,transparent);
   top:-100px;left:-100px;
-  animation-delay:0s;
   animation-duration:25s;
 }
 
@@ -98,7 +96,6 @@ body{
   75%{transform:translate(80px,-60px) scale(1.05);}
 }
 
-/* PARTICLES */
 .particles{
   position:fixed;
   top:0;left:0;
@@ -123,7 +120,6 @@ body{
   100%{opacity:0;transform:translateY(-10vh) scale(1);}
 }
 
-/* GRID LINES */
 .grid-overlay{
   position:fixed;
   top:0;left:0;
@@ -142,7 +138,6 @@ body{
   100%{transform:translate(60px,60px);}
 }
 
-/* NAVBAR */
 .navbar{
   display:flex;
   justify-content:space-between;
@@ -269,7 +264,6 @@ body{
   transform:scale(0.95);
 }
 
-/* SIDE MENU */
 .side-menu{
   position:fixed;
   top:0;
@@ -383,6 +377,7 @@ body{
   margin-left:auto;
   font-size:12px;
   opacity:0.5;
+  transition:0.3s;
 }
 
 .close-btn{
@@ -408,7 +403,6 @@ body{
   transform:rotate(-90deg);
 }
 
-/* OVERLAY */
 .overlay{
   position:fixed;
   top:0;left:0;
@@ -426,7 +420,6 @@ body{
   visibility:visible;
 }
 
-/* FEATURES */
 .features-box{
   display:none;
   margin-top:5px;
@@ -466,7 +459,6 @@ body{
   font-size:14px;
 }
 
-/* HERO SECTION */
 .hero{
   position:relative;
   z-index:1;
@@ -532,7 +524,6 @@ body{
   to{opacity:1;transform:translateY(0);}
 }
 
-/* STATS BAR */
 .stats-bar{
   position:relative;
   z-index:1;
@@ -591,13 +582,12 @@ body{
   margin-top:2px;
 }
 
-/* MAIN CONTAINER */
 .container{
   position:relative;
   z-index:1;
   max-width:520px;
   margin:20px auto 60px;
-  padding:0;
+  padding:0 15px;
   animation:containerReveal 1s ease 0.8s both;
 }
 
@@ -677,7 +667,6 @@ body{
   color:#777;
 }
 
-/* INPUT GROUPS */
 .input-group{
   margin-bottom:18px;
   position:relative;
@@ -712,6 +701,7 @@ body{
 
 .input-wrapper{
   position:relative;
+  transition:0.3s;
 }
 
 .input-wrapper input{
@@ -733,8 +723,7 @@ body{
 
 .input-wrapper input:focus{
   border-color:var(--primary);
-  box-shadow:0 0 0 4px rgba(192,132,252,0.1),
-             0 0 20px rgba(192,132,252,0.1);
+  box-shadow:0 0 0 4px rgba(192,132,252,0.1),0 0 20px rgba(192,132,252,0.1);
   background:rgba(30,0,56,0.8);
 }
 
@@ -752,7 +741,6 @@ body{
   color:var(--primary);
 }
 
-/* BUTTON */
 .btn-wrapper{
   position:relative;
   z-index:1;
@@ -796,8 +784,7 @@ body{
 
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 10px 40px rgba(192,132,252,0.4),
-             0 0 80px rgba(192,132,252,0.15);
+  box-shadow:0 10px 40px rgba(192,132,252,0.4),0 0 80px rgba(192,132,252,0.15);
 }
 
 .btn:active{
@@ -809,14 +796,6 @@ body{
   opacity:0.8;
 }
 
-.btn .btn-particles{
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  pointer-events:none;
-}
-
-/* PROGRESS BAR */
 .progress-container{
   margin-top:20px;
   display:none;
@@ -849,7 +828,6 @@ body{
   color:#888;
 }
 
-/* RESPONSE */
 .response{
   margin-top:25px;
   padding:20px;
@@ -859,15 +837,6 @@ body{
   position:relative;
   z-index:1;
   overflow:hidden;
-}
-
-.response::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  opacity:0.05;
-  pointer-events:none;
 }
 
 .response.success{
@@ -936,7 +905,6 @@ body{
   font-weight:600;
 }
 
-/* FOOTER */
 .footer{
   position:relative;
   z-index:1;
@@ -976,58 +944,30 @@ body{
   45%{transform:scale(1.1);}
 }
 
-/* TOOLTIP */
-.tooltip{
-  position:fixed;
-  padding:8px 16px;
-  background:rgba(10,0,21,0.95);
-  border:1px solid rgba(192,132,252,0.2);
-  border-radius:10px;
-  font-size:12px;
-  color:#fff;
-  z-index:2000;
+.glow-ring{
+  position:absolute;
+  border-radius:50%;
+  border:2px solid rgba(192,132,252,0.1);
   pointer-events:none;
-  opacity:0;
-  transition:0.3s;
-  backdrop-filter:blur(10px);
+  animation:glowRingPulse 4s ease-in-out infinite;
 }
 
-.tooltip.show{
-  opacity:1;
+.glow-ring:nth-child(1){
+  width:200px;height:200px;
+  top:-100px;right:-100px;
 }
 
-/* SCROLLBAR */
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:var(--bg-dark);}
-::-webkit-scrollbar-thumb{
-  background:linear-gradient(var(--primary),var(--primary-dark));
-  border-radius:10px;
+.glow-ring:nth-child(2){
+  width:300px;height:300px;
+  top:-150px;right:-150px;
+  animation-delay:1s;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-  .container{margin:15px;padding:0;}
-  .card{padding:20px;border-radius:16px;}
-  .hero h1{font-size:26px;}
-  .stats-bar{gap:8px;padding:15px;}
-  .stat-item{padding:10px 14px;}
-  .stat-item .stat-info h4{font-size:14px;}
-  .nav-status{display:none;}
+@keyframes glowRingPulse{
+  0%,100%{transform:scale(1);opacity:0.3;}
+  50%{transform:scale(1.2);opacity:0.1;}
 }
 
-/* ANIMATIONS FOR ELEMENTS */
-.animate-on-scroll{
-  opacity:0;
-  transform:translateY(30px);
-  transition:all 0.8s cubic-bezier(0.22,1,0.36,1);
-}
-
-.animate-on-scroll.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* RIPPLE EFFECT */
 .ripple{
   position:absolute;
   border-radius:50%;
@@ -1041,11 +981,8 @@ body{
   to{transform:scale(4);opacity:0;}
 }
 
-/* CONFETTI */
 .confetti-piece{
   position:fixed;
-  width:8px;
-  height:8px;
   z-index:2000;
   pointer-events:none;
   animation:confettiFall 3s ease forwards;
@@ -1056,44 +993,29 @@ body{
   100%{opacity:0;transform:translateY(100vh) rotate(720deg);}
 }
 
-/* TYPING EFFECT */
-.typing-text::after{
-  content:'|';
-  animation:cursorBlink 0.8s infinite;
-  color:var(--primary);
+@keyframes toastIn{from{opacity:0;transform:translateX(100px);}to{opacity:1;transform:translateX(0);}}
+@keyframes toastOut{from{opacity:1;transform:translateX(0);}to{opacity:0;transform:translateX(100px);}}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg-dark);}
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(var(--primary),var(--primary-dark));
+  border-radius:10px;
 }
 
-@keyframes cursorBlink{
-  0%,100%{opacity:1;}
-  50%{opacity:0;}
-}
-
-/* GLOW RING ON CARD */
-.glow-ring{
-  position:absolute;
-  width:200px;height:200px;
-  border-radius:50%;
-  border:2px solid rgba(192,132,252,0.1);
-  top:-100px;right:-100px;
-  animation:glowRingPulse 4s ease-in-out infinite;
-  pointer-events:none;
-}
-
-@keyframes glowRingPulse{
-  0%,100%{transform:scale(1);opacity:0.3;}
-  50%{transform:scale(1.2);opacity:0.1;}
-}
-
-.glow-ring:nth-child(2){
-  width:300px;height:300px;
-  top:-150px;right:-150px;
-  animation-delay:1s;
+@media(max-width:600px){
+  .container{margin:15px auto;padding:0 10px;}
+  .card{padding:20px;border-radius:16px;}
+  .hero h1{font-size:26px;}
+  .stats-bar{gap:8px;padding:15px;}
+  .stat-item{padding:10px 14px;}
+  .stat-item .stat-info h4{font-size:14px;}
+  .nav-status{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- ANIMATED BACKGROUND -->
 <div class="bg-animation">
   <div class="orb"></div>
   <div class="orb"></div>
@@ -1102,10 +1024,8 @@ body{
 </div>
 
 <div class="grid-overlay"></div>
-
 <div class="particles" id="particles"></div>
 
-<!-- NAVBAR -->
 <div class="navbar" id="navbar">
   <div class="logo">
     <i class="fas fa-share-nodes"></i>
@@ -1123,10 +1043,8 @@ body{
   </div>
 </div>
 
-<!-- OVERLAY -->
 <div id="overlay" class="overlay" onclick="closeMenu()"></div>
 
-<!-- SIDE MENU -->
 <div id="menu" class="side-menu">
   <div class="menu-header">
     <button class="close-btn" onclick="closeMenu()">
@@ -1135,7 +1053,7 @@ body{
     <div class="menu-logo">
       <i class="fas fa-rocket"></i>
     </div>
-    <h3>Share Boost Free</h3>
+    <h3>Share Boost Pro</h3>
     <p>v2.0 • Free Premium Tools</p>
   </div>
 
@@ -1185,7 +1103,6 @@ body{
   </div>
 </div>
 
-<!-- HERO SECTION -->
 <div class="hero">
   <div class="hero-badge">
     <i class="fas fa-bolt"></i>
@@ -1195,19 +1112,18 @@ body{
   <p>Enter your credentials below and watch your post shares skyrocket in seconds. Powered by cutting-edge API technology.</p>
 </div>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stat-item">
     <div class="stat-icon"><i class="fas fa-users"></i></div>
     <div class="stat-info">
-      <h4 id="userCount">12.4K</h4>
+      <h4 id="userCount">0</h4>
       <p>Active Users</p>
     </div>
   </div>
   <div class="stat-item">
     <div class="stat-icon"><i class="fas fa-share-nodes"></i></div>
     <div class="stat-info">
-      <h4 id="shareCount">847K</h4>
+      <h4 id="shareCount">0</h4>
       <p>Shares Sent</p>
     </div>
   </div>
@@ -1220,7 +1136,6 @@ body{
   </div>
 </div>
 
-<!-- MAIN CARD -->
 <div class="container">
   <div class="card">
     <div class="glow-ring"></div>
@@ -1287,7 +1202,6 @@ body{
   </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fas fa-shield-halved"></i> Privacy</a>
@@ -1297,364 +1211,252 @@ body{
   <p>Made with <span class="heart">❤</span> by Share Boost Team &copy; 2026</p>
 </div>
 
-<!-- TOAST CONTAINER -->
 <div id="toastContainer" style="position:fixed;top:80px;right:20px;z-index:3000;display:flex;flex-direction:column;gap:10px;"></div>
 
 <script>
-// PARTICLES
-(function createParticles(){
-  const container = document.getElementById('particles');
-  for(let i = 0; i < 40; i++){
-    const p = document.createElement('div');
+(function(){
+  var c=document.getElementById('particles');
+  for(var i=0;i<40;i++){
+    var p=document.createElement('div');
     p.classList.add('particle');
-    p.style.left = Math.random()*100 + '%';
-    p.style.animationDuration = (Math.random()*10 + 8) + 's';
-    p.style.animationDelay = Math.random()*10 + 's';
-    p.style.width = (Math.random()*3 + 1) + 'px';
-    p.style.height = p.style.width;
-    container.appendChild(p);
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(Math.random()*10+8)+'s';
+    p.style.animationDelay=Math.random()*10+'s';
+    var s=(Math.random()*3+1)+'px';
+    p.style.width=s;
+    p.style.height=s;
+    c.appendChild(p);
   }
 })();
 
-// NAVBAR SCROLL
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if(window.scrollY > 50) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
+window.addEventListener('scroll',function(){
+  var n=document.getElementById('navbar');
+  if(window.scrollY>50)n.classList.add('scrolled');
+  else n.classList.remove('scrolled');
 });
 
-// MENU
 function openMenu(){
   document.getElementById("menu").classList.add("active");
   document.getElementById("overlay").classList.add("active");
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
 
 function closeMenu(){
   document.getElementById("menu").classList.remove("active");
   document.getElementById("overlay").classList.remove("active");
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
 
-// FEATURES
-let featuresOpen = false;
+var featuresOpen=false;
 function toggleFeatures(){
-  let box = document.getElementById("featuresBox");
-  let arrow = document.getElementById("featureArrow");
-  featuresOpen = !featuresOpen;
+  var box=document.getElementById("featuresBox");
+  var arrow=document.getElementById("featureArrow");
+  featuresOpen=!featuresOpen;
   if(featuresOpen){
-    box.style.display = "block";
-    arrow.style.transform = "rotate(180deg)";
-    // Re-trigger animations
-    box.querySelectorAll('li').forEach(li => {
-      li.style.animation = 'none';
+    box.style.display="block";
+    arrow.style.transform="rotate(180deg)";
+    box.querySelectorAll('li').forEach(function(li){
+      li.style.animation='none';
       li.offsetHeight;
-      li.style.animation = '';
+      li.style.animation='';
     });
-  } else {
-    box.style.display = "none";
-    arrow.style.transform = "rotate(0deg)";
+  }else{
+    box.style.display="none";
+    arrow.style.transform="rotate(0deg)";
   }
 }
 
-// TOAST NOTIFICATIONS
-function showToast(message, type = 'info'){
-  const container = document.getElementById('toastContainer');
-  const toast = document.createElement('div');
-  
-  let icon, color;
+function showToast(message,type){
+  type=type||'info';
+  var container=document.getElementById('toastContainer');
+  var toast=document.createElement('div');
+  var icon,color;
   switch(type){
-    case 'success': icon = 'fa-circle-check'; color = '#00ff99'; break;
-    case 'error': icon = 'fa-circle-xmark'; color = '#ff4d6d'; break;
-    case 'warning': icon = 'fa-triangle-exclamation'; color = '#ffaa00'; break;
-    default: icon = 'fa-circle-info'; color = '#c084fc';
+    case'success':icon='fa-circle-check';color='#00ff99';break;
+    case'error':icon='fa-circle-xmark';color='#ff4d6d';break;
+    case'warning':icon='fa-triangle-exclamation';color='#ffaa00';break;
+    default:icon='fa-circle-info';color='#c084fc';
   }
-  
-  toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-  toast.style.cssText = `
-    display:flex;align-items:center;gap:10px;
-    padding:12px 20px;
-    background:rgba(10,0,21,0.95);
-    border:1px solid ${color}33;
-    border-left:3px solid ${color};
-    border-radius:12px;
-    font-size:13px;
-    color:${color};
-    backdrop-filter:blur(20px);
-    animation:toastIn 0.5s cubic-bezier(0.22,1,0.36,1);
-    box-shadow:0 10px 40px rgba(0,0,0,0.3);
-  `;
-  
+  toast.innerHTML='<i class="fas '+icon+'"></i> '+message;
+  toast.style.cssText='display:flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(10,0,21,0.95);border:1px solid '+color+'33;border-left:3px solid '+color+';border-radius:12px;font-size:13px;color:'+color+';backdrop-filter:blur(20px);animation:toastIn 0.5s cubic-bezier(0.22,1,0.36,1);box-shadow:0 10px 40px rgba(0,0,0,0.3);';
   container.appendChild(toast);
-  
-  setTimeout(() => {
-    toast.style.animation = 'toastOut 0.4s ease forwards';
-    setTimeout(() => toast.remove(), 400);
-  }, 3000);
+  setTimeout(function(){
+    toast.style.animation='toastOut 0.4s ease forwards';
+    setTimeout(function(){toast.remove();},400);
+  },3000);
 }
 
-// Add toast animations
-const toastStyle = document.createElement('style');
-toastStyle.textContent = `
-  @keyframes toastIn{from{opacity:0;transform:translateX(100px);}to{opacity:1;transform:translateX(0);}}
-  @keyframes toastOut{from{opacity:1;transform:translateX(0);}to{opacity:0;transform:translateX(100px);}}
-`;
-document.head.appendChild(toastStyle);
-
-// RIPPLE EFFECT ON BUTTON
-document.getElementById('submitBtn').addEventListener('mousedown', function(e){
-  const ripple = document.createElement('span');
+document.getElementById('submitBtn').addEventListener('mousedown',function(e){
+  var ripple=document.createElement('span');
   ripple.classList.add('ripple');
-  const rect = this.getBoundingClientRect();
-  ripple.style.left = (e.clientX - rect.left) + 'px';
-  ripple.style.top = (e.clientY - rect.top) + 'px';
+  var rect=this.getBoundingClientRect();
+  ripple.style.left=(e.clientX-rect.left)+'px';
+  ripple.style.top=(e.clientY-rect.top)+'px';
   this.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 600);
+  setTimeout(function(){ripple.remove();},600);
 });
 
-// CONFETTI
 function launchConfetti(){
-  const colors = ['#c084fc','#e879f9','#a855f7','#00ff99','#ffaa00','#ff4d6d'];
-  for(let i = 0; i < 50; i++){
-    const piece = document.createElement('div');
+  var colors=['#c084fc','#e879f9','#a855f7','#00ff99','#ffaa00','#ff4d6d'];
+  for(var i=0;i<50;i++){
+    var piece=document.createElement('div');
     piece.classList.add('confetti-piece');
-    piece.style.left = Math.random()*100 + 'vw';
-    piece.style.top = '-10px';
-    piece.style.background = colors[Math.floor(Math.random()*colors.length)];
-    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-    piece.style.width = (Math.random()*8 + 4) + 'px';
-    piece.style.height = piece.style.width;
-    piece.style.animationDuration = (Math.random()*2 + 2) + 's';
-    piece.style.animationDelay = Math.random()*0.5 + 's';
+    piece.style.left=Math.random()*100+'vw';
+    piece.style.top='-10px';
+    piece.style.background=colors[Math.floor(Math.random()*colors.length)];
+    piece.style.borderRadius=Math.random()>0.5?'50%':'2px';
+    var sz=(Math.random()*8+4)+'px';
+    piece.style.width=sz;
+    piece.style.height=sz;
+    piece.style.animationDuration=(Math.random()*2+2)+'s';
+    piece.style.animationDelay=Math.random()*0.5+'s';
     document.body.appendChild(piece);
-    setTimeout(() => piece.remove(), 4000);
+    setTimeout(function(p){return function(){p.remove();};}(piece),4000);
   }
 }
 
-// PROGRESS SIMULATION
-function simulateProgress(callback){
-  const container = document.getElementById('progressContainer');
-  const fill = document.getElementById('progressFill');
-  const label = document.getElementById('progressLabel');
-  const percent = document.getElementById('progressPercent');
-  
-  container.style.display = 'block';
-  fill.style.width = '0%';
-  
-  const steps = [
-    {p:15, text:'Validating credentials...'},
-    {p:30, text:'Connecting to server...'},
-    {p:50, text:'Initializing share engine...'},
-    {p:70, text:'Processing shares...'},
-    {p:85, text:'Almost done...'},
-    {p:95, text:'Finalizing...'},
+function simulateProgress(){
+  var container=document.getElementById('progressContainer');
+  var fill=document.getElementById('progressFill');
+  var label=document.getElementById('progressLabel');
+  var percent=document.getElementById('progressPercent');
+  container.style.display='block';
+  fill.style.width='0%';
+  var steps=[
+    {p:15,text:'Validating credentials...'},
+    {p:30,text:'Connecting to server...'},
+    {p:50,text:'Initializing share engine...'},
+    {p:70,text:'Processing shares...'},
+    {p:85,text:'Almost done...'},
+    {p:95,text:'Finalizing...'}
   ];
-  
-  let i = 0;
-  const interval = setInterval(() => {
-    if(i < steps.length){
-      fill.style.width = steps[i].p + '%';
-      label.textContent = steps[i].text;
-      percent.textContent = steps[i].p + '%';
+  var i=0;
+  var interval=setInterval(function(){
+    if(i<steps.length){
+      fill.style.width=steps[i].p+'%';
+      label.textContent=steps[i].text;
+      percent.textContent=steps[i].p+'%';
       i++;
     }
-  }, 400);
-  
-  return { interval, fill, label, percent, container };
+  },400);
+  return{interval:interval,fill:fill,label:label,percent:percent,container:container};
 }
 
-// MAIN REQUEST
 async function sendRequest(e){
-  let key = document.getElementById("key").value.trim();
-  let cookie = document.getElementById("cookie").value.trim();
-  let link = document.getElementById("link").value.trim();
-  let limit = document.getElementById("limit").value.trim();
+  var key=document.getElementById("key").value.trim();
+  var cookie=document.getElementById("cookie").value.trim();
+  var link=document.getElementById("link").value.trim();
+  var limit=document.getElementById("limit").value.trim();
 
-  // Validation
-  if(!key || !cookie || !link || !limit){
-    showToast('Please fill in all fields!', 'warning');
+  if(!key||!cookie||!link||!limit){
+    showToast('Please fill in all fields!','warning');
     return;
   }
 
-  if(parseInt(limit) < 1){
-    showToast('Share limit must be at least 1!', 'warning');
+  if(parseInt(limit)<1){
+    showToast('Share limit must be at least 1!','warning');
     return;
   }
 
-  let responseBox = document.getElementById("response");
-  let btn = document.getElementById("submitBtn");
-  
-  // Button loading state
+  var responseBox=document.getElementById("response");
+  var btn=document.getElementById("submitBtn");
+
   btn.classList.add('loading');
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Processing...</span>';
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> <span>Processing...</span>';
 
-  responseBox.style.display = "block";
-  responseBox.className = "response processing";
-  responseBox.innerHTML = `
-    <h4><i class="fas fa-spinner fa-spin"></i> Processing Request</h4>
-    <p>Please wait while we process your shares...</p>
-  `;
+  responseBox.style.display="block";
+  responseBox.className="response processing";
+  responseBox.innerHTML='<h4><i class="fas fa-spinner fa-spin"></i> Processing Request</h4><p>Please wait while we process your shares...</p>';
 
-  // Start progress
-  const progress = simulateProgress();
+  var progress=simulateProgress();
 
   try{
-    let res = await fetch(`https://vern-rest-api.vercel.app/api/share?key=${key}&cookie=${cookie}&link=${link}&limit=${limit}`);
-    let data = await res.json();
+    var res=await fetch('https://vern-rest-api.vercel.app/api/share?key='+key+'&cookie='+cookie+'&link='+link+'&limit='+limit);
+    var data=await res.json();
 
-    // Complete progress
     clearInterval(progress.interval);
-    progress.fill.style.width = '100%';
-    progress.label.textContent = 'Complete!';
-    progress.percent.textContent = '100%';
+    progress.fill.style.width='100%';
+    progress.label.textContent='Complete!';
+    progress.percent.textContent='100%';
 
-    setTimeout(() => {
-      progress.container.style.display = 'none';
-    }, 1000);
+    setTimeout(function(){
+      progress.container.style.display='none';
+    },1000);
 
     if(data.status){
-      responseBox.className = "response success";
-      responseBox.style.display = "block";
-      responseBox.innerHTML = `
-        <h4><i class="fas fa-circle-check"></i> Share Completed Successfully!</h4>
-        <p>${data.message || "All shares have been delivered successfully."}</p>
-        <div class="response-details">
-          <div class="detail-row">
-            <span class="label">Status</span>
-            <span class="value" style="color:#00ff99">✓ Success</span>
-          </div>
-          <div class="detail-row">
-            <span class="label">Shares Requested</span>
-            <span class="value">${limit}</span>
-          </div>
-          <div class="detail-row">
-            <span class="label">Timestamp</span>
-            <span class="value">${new Date().toLocaleTimeString()}</span>
-          </div>
-        </div>
-      `;
-      
-      showToast('Shares delivered successfully! 🎉', 'success');
+      responseBox.className="response success";
+      responseBox.style.display="block";
+      responseBox.innerHTML='<h4><i class="fas fa-circle-check"></i> Share Completed Successfully!</h4><p>'+(data.message||"All shares have been delivered successfully.")+'</p><div class="response-details"><div class="detail-row"><span class="label">Status</span><span class="value" style="color:#00ff99">✓ Success</span></div><div class="detail-row"><span class="label">Shares Requested</span><span class="value">'+limit+'</span></div><div class="detail-row"><span class="label">Timestamp</span><span class="value">'+new Date().toLocaleTimeString()+'</span></div></div>';
+      showToast('Shares delivered successfully! 🎉','success');
       launchConfetti();
-      
-    } else {
-      responseBox.className = "response error";
-      responseBox.style.display = "block";
-      responseBox.innerHTML = `
-        <h4><i class="fas fa-circle-xmark"></i> Share Failed</h4>
-        <p>${data.message || "Invalid input or API error. Please check your credentials."}</p>
-        <div class="response-details">
-          <div class="detail-row">
-            <span class="label">Status</span>
-            <span class="value" style="color:#ff4d6d">✗ Failed</span>
-          </div>
-          <div class="detail-row">
-            <span class="label">Time</span>
-            <span class="value">${new Date().toLocaleTimeString()}</span>
-          </div>
-        </div>
-      `;
-      
-      showToast('Share request failed!', 'error');
+    }else{
+      responseBox.className="response error";
+      responseBox.style.display="block";
+      responseBox.innerHTML='<h4><i class="fas fa-circle-xmark"></i> Share Failed</h4><p>'+(data.message||"Invalid input or API error. Please check your credentials.")+'</p><div class="response-details"><div class="detail-row"><span class="label">Status</span><span class="value" style="color:#ff4d6d">✗ Failed</span></div><div class="detail-row"><span class="label">Time</span><span class="value">'+new Date().toLocaleTimeString()+'</span></div></div>';
+      showToast('Share request failed!','error');
     }
-
-  } catch(e){
+  }catch(err){
     clearInterval(progress.interval);
-    progress.container.style.display = 'none';
-    
-    responseBox.className = "response error";
-    responseBox.style.display = "block";
-    responseBox.innerHTML = `
-      <h4><i class="fas fa-triangle-exclamation"></i> Network Error</h4>
-      <p>Unable to connect to the server. Please check your internet connection and try again.</p>
-      <div class="response-details">
-        <div class="detail-row">
-          <span class="label">Error Type</span>
-          <span class="value" style="color:#ff4d6d">Connection Failed</span>
-        </div>
-      </div>
-    `;
-    
-    showToast('Network error! Check your connection.', 'error');
+    progress.container.style.display='none';
+    responseBox.className="response error";
+    responseBox.style.display="block";
+    responseBox.innerHTML='<h4><i class="fas fa-triangle-exclamation"></i> Network Error</h4><p>Unable to connect to the server. Please check your internet connection and try again.</p><div class="response-details"><div class="detail-row"><span class="label">Error Type</span><span class="value" style="color:#ff4d6d">Connection Failed</span></div></div>';
+    showToast('Network error! Check your connection.','error');
   }
 
-  // Reset button
   btn.classList.remove('loading');
-  btn.innerHTML = '<i class="fas fa-rocket"></i> <span>Start Sharing</span>';
+  btn.innerHTML='<i class="fas fa-rocket"></i> <span>Start Sharing</span>';
 }
 
-// COUNTER ANIMATIONS
-function animateCounter(element, target, suffix = ''){
-  const targetStr = target.toString();
-  let current = 0;
-  const increment = target / 60;
-  const timer = setInterval(() => {
-    current += increment;
-    if(current >= target){
-      element.textContent = targetStr + suffix;
+function animateCounter(el,target,suffix){
+  suffix=suffix||'';
+  var current=0;
+  var increment=target/60;
+  var timer=setInterval(function(){
+    current+=increment;
+    if(current>=target){
+      el.textContent=target.toLocaleString()+suffix;
       clearInterval(timer);
-    } else {
-      element.textContent = Math.floor(current).toLocaleString() + suffix;
+    }else{
+      el.textContent=Math.floor(current).toLocaleString()+suffix;
     }
-  }, 30);
+  },30);
 }
 
-// Initialize counters after page load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    animateCounter(document.getElementById('userCount'), 12400, '+');
-    animateCounter(document.getElementById('shareCount'), 847000, '+');
-  }, 1000);
+window.addEventListener('load',function(){
+  setTimeout(function(){
+    animateCounter(document.getElementById('userCount'),12400,'+');
+    animateCounter(document.getElementById('shareCount'),847000,'+');
+  },1000);
 });
 
-// INPUT FOCUS EFFECTS
-document.querySelectorAll('.input-wrapper input').forEach(input => {
-  input.addEventListener('focus', function(){
-    this.parentElement.style.transform = 'scale(1.01)';
-    this.parentElement.style.transition = '0.3s';
+document.querySelectorAll('.input-wrapper input').forEach(function(input){
+  input.addEventListener('focus',function(){
+    this.parentElement.style.transform='scale(1.01)';
+    this.parentElement.style.transition='0.3s';
   });
-  input.addEventListener('blur', function(){
-    this.parentElement.style.transform = 'scale(1)';
+  input.addEventListener('blur',function(){
+    this.parentElement.style.transform='scale(1)';
   });
 });
 
-// KEYBOARD SHORTCUT - Enter to submit
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'Enter' && !e.shiftKey){
-    const btn = document.getElementById('submitBtn');
-    if(!btn.classList.contains('loading')){
-      sendRequest(e);
-    }
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&!e.shiftKey){
+    var btn=document.getElementById('submitBtn');
+    if(!btn.classList.contains('loading'))sendRequest(e);
   }
-  // ESC to close menu
-  if(e.key === 'Escape'){
-    closeMenu();
-  }
+  if(e.key==='Escape')closeMenu();
 });
 
-// CURSOR GLOW EFFECT (desktop only)
-if(window.innerWidth > 768){
-  const glow = document.createElement('div');
-  glow.style.cssText = `
-    position:fixed;
-    width:200px;height:200px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(192,132,252,0.06),transparent 70%);
-    pointer-events:none;
-    z-index:0;
-    transform:translate(-50%,-50%);
-    transition:all 0.15s ease;
-  `;
+if(window.innerWidth>768){
+  var glow=document.createElement('div');
+  glow.style.cssText='position:fixed;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(192,132,252,0.06),transparent 70%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);transition:all 0.15s ease;';
   document.body.appendChild(glow);
-  
-  document.addEventListener('mousemove', (e) => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+  document.addEventListener('mousemove',function(e){
+    glow.style.left=e.clientX+'px';
+    glow.style.top=e.clientY+'px';
   });
 }
-
-console.log('%c⚡ Share Boost Pro v2.0', 'color:#c084fc;font-size:20px;font-weight:bold;');
-console.log('%cMade with ❤ by Share Boost Team', 'color:#888;font-size:12px;');
 </script>
 
 </body>
